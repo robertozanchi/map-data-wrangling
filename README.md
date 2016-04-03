@@ -4,9 +4,9 @@ This is project 3 of Udacity's Data Analyst Nanodegree.
 
 ##Selected Openstreetmap Data
 
-Using [Overpass API][http://overpass-api.de/query_form.html] I downloaded a custom osm file with map data for a small area in central London.
+Using [Overpass API](http://overpass-api.de/query_form.html) I downloaded a custom osm file with map data for a small area in central London.
 
-I decided to examine and wrangle the map data for street names, postal codes and phone numbers in the selected Openstreetmap area.
+I decided to wrangle street name, postal code and phone number data in the selected Openstreetmap area.
 
 ##Problems Encountered in the Map Data
 
