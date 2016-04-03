@@ -4,13 +4,15 @@ This is project 3 of Udacity's Data Analyst Nanodegree.
 
 ##Selected Openstreetmap Data
 
+Using [Overpass API][http://overpass-api.de/query_form.html] I downloaded a custom osm file with map data for a small area in central London.
 
+I decided to examine and wrangle the map data for street names, postal codes and phone numbers in the selected Openstreetmap area.
 
 ##Problems Encountered in the Map Data
 
-I decided to examine map data for street names, postal codes and phone numbers. I have summarized the auditing approach, tools used and the problems detected in the section "Auditing of map data". In "Data tranformation" I present the approach and tools used to clean and tidy the data in order to resolve a selection of the problems encountered.
+I have summarized the auditing approach, tools used and the problems detected in the section "Auditing of map data". In "Data tranformation" I present the approach and tools used to clean and tidy the data in order to resolve a selection of the problems encountered.
 
-At this stage, I have worked with the osm file downloaded from Openstreetmap. At the end of data auditing and transformation, I produced a JSON file ready to be uploaded to MongoDB. All work with data in MongoDB is described in the section "Data Overview".
+At this stage, I worked on the osm file downloaded from Openstreetmap. At the end of data auditing and transformation process decribed in this section, I produced a JSON file ready to be uploaded to MongoDB. All work with data in MongoDB is described in the section "Data Overview".
 
 ###Auditing of map data
 I checked street names, postal codes and phone numbers.
