@@ -1,6 +1,16 @@
 #OpenStreetMap Data Wrangling with MongoDB
 
-##1. Problems Encountered in the Map
+This is project 3 of Udacity's Data Analyst Nanodegree.
+
+##Selected Openstreetmap Data
+
+
+
+##Problems Encountered in the Map Data
+
+I decided to examine map data for street names, postal codes and phone numbers. I have summarized the auditing approach, tools used and the problems detected in the section "Auditing of map data". In "Data tranformation" I present the approach and tools used to clean and tidy the data in order to resolve a selection of the problems encountered.
+
+At this stage, I have worked with the osm file downloaded from Openstreetmap. At the end of data auditing and transformation, I produced a JSON file ready to be uploaded to MongoDB. All work with data in MongoDB is described in the section "Data Overview".
 
 ###Auditing of map data
 I checked street names, postal codes and phone numbers.
@@ -38,7 +48,7 @@ Auditing of phone number: purpose, tools/scripts used, findings...
 ##Data tranformation
 
 
-##2. Data Overview
+##Data Overview
 
 ###Importing into MongoDB
 
@@ -66,7 +76,7 @@ mongoimport --file /users/robertozanchi/Desktop/Udacity/DAND/P3/london.osm.json 
 287928
 
 
-##3. Additional Ideas
+##Additional Ideas
 
 1. Incomplete post codes: completing post codes would require searching using the complete address of a place
 
