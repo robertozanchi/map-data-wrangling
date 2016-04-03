@@ -14,18 +14,33 @@ At this stage, I worked only on the XML data downloaded from Openstreetmap. At t
 
 ###Auditing of map data
 
-I audited street names, postal codes and phone numbers using Python scripts to analyse the XML data in london.osm. The objective was to spot inconsistencies and mistakes in data value or format.
+The objective of auditing was to spot inconsistencies and mistakes of value or format in the data. I audited street names, postal codes and phone numbers in london.osm by analysing the XML data with Python scripts. 
 
 To audit street names, I used ```audit_street.py```, a custom Python script based off of Udacity's code. For postal codes and phone numbers, I used more simple code like ```audit_phone.py``` to print out all values and eyeball the data.
 
 ####1. Problems with street names
 
-I examined the values associated with the XML tag "street" and detected several kinds of mistakes and inconsistencies in street name data. 
+To help spot incosistencies, I filtered out the correct street names using a list of expected values. The UK has a variety of street name endings. I added to this list by running ```audit_street.py``` several times, each time adding new expected names.
+
+```
+expected = ["Acre", "Approach", "Arch", "Avenue", "Bridge", "Circle", "Circus", "Close", "Corner",
+            "Court", "Crescent", "Drive", "East", "Embankment", "Estate", "Garden", "Gardens", "Gate", "Grove",
+            "Hill", "Lane", "Market", "Mews", "North", "Place", "Road", "Row", "South", "Square", "Station",
+            "Street", "Terrace", "Walk", "Way", "West", "Wharf", "Yard"]
+```
+
+I detected different types of mistakes and inconsistencies in street name values associated with the XML tag "street" in london.osm:
 
 1. Abbreviations
 2. Small caps
+3. Typos
+4. 
 
 #####Abbreviation
+- St.
+- St
+- Sq
+- Rd
 
 #####Small caps
 
