@@ -4,19 +4,19 @@ This is project 3 of Udacity's Data Analyst Nanodegree.
 
 ##Selected Openstreetmap Data
 
-Using [Overpass API](http://overpass-api.de/query_form.html) I downloaded an osm file of size 67.7 MB (london.osm) with Openstreetmap XML data for a custom area in central London. For this project, I chose to focus on wrangling street name, postal code and phone number data using Python and MongoBD.
+I started with an osm file of size 67.7 MB (london.osm) containing Openstreetmap XML data for a custom area in central London, downloaded using [Overpass API](http://overpass-api.de/query_form.html). For this project, I chose to focus on wrangling street name, postal code and phone number data using Python and MongoBD.
 
 ##Problems Encountered in the Map Data
 
-I have summarized the auditing approach, tools used and the problems detected in "Auditing of map data". In "Data tranformation" I present the methods and tools used to clean and tidy the data in order to resolve a selection of the encountered problems.
+I have summarized the auditing approachd and the problems detected in "Auditing of map data". In "Data tranformation" I present the methods used to clean and tidy the data in order to resolve a selection of the encountered problems.
 
-At this stage, I worked on the osm file downloaded from Openstreetmap. At the end of data auditing and transformation process, I produced a JSON file ready to be uploaded to MongoDB. All work with data in MongoDB is described in the next section, "Data Overview".
+At this stage, I worked only on the XML data downloaded from Openstreetmap. At the end of data transformation process, I produced a JSON file ready to be uploaded to MongoDB. All work with data in MongoDB is presented in "Data Overview".
 
 ###Auditing of map data
 
-I audited street names, postal codes and phone numbers using Python scripts on the XML data in london.osm. The objective was to spot inconsistencies and mistakes in terms of value or format.
+I audited street names, postal codes and phone numbers using Python scripts to analyse the XML data in london.osm. The objective was to spot inconsistencies and mistakes in data value or format.
 
-For street names, I used audit_street.py, a custom Python script based off of Udacity's code. For postal codes and phone numbers, I used code like audit_phone.py to print out all values and eyeball the data.
+For street names, I used ```audit_street.py```, a custom Python script based off of Udacity's code. For postal codes and phone numbers, I used code like ```audit_phone.py``` to print out all values and eyeball the data.
 
 ####1. Problems with street names
 
