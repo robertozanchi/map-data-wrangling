@@ -2,9 +2,9 @@
 
 This is project 3 of Udacity's Data Analyst Nanodegree.
 
-##Selected Openstreetmap Data
+##Openstreetmap Data for a Small Area in Central London
 
-I started with an osm file of size 67.7 MB (london.osm) containing Openstreetmap XML data for a custom area in central London, downloaded using [Overpass API](http://overpass-api.de/query_form.html). For this project, I chose to focus on wrangling street name, postal code and phone number data using Python and MongoBD.
+I started with london.osm, an XML file of size 67.7 MB containing [Openstreetmap](https://www.openstreetmap.org) data for a custom area in central London, obtained with [Overpass API](http://overpass-api.de/query_form.html). For this project, I chose to wrangle street name, postal code and phone number data using Python and MongoBD.
 
 ##Problems Encountered in the Map Data
 
