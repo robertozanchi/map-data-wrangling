@@ -20,7 +20,7 @@ To audit street names, I used ```audit_street.py```, a custom Python script base
 
 ####1. Problems with street names
 
-To help spot incosistencies, I filtered out the correct street names using a list of expected values. The UK has a variety of street name endings. I added to this list by running ```audit_street.py``` several times, each time adding new expected names.
+To spot mistakes more easily, I filtered out known correct street names using a list of expected values. I ran ```audit_street.py``` several times, each time finding new names to add to the list below.
 
 ```
 expected = ["Acre", "Approach", "Arch", "Avenue", "Bridge", "Circle", "Circus", "Close", "Corner",
