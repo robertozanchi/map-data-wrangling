@@ -4,11 +4,11 @@ This is project 3 of Udacity's Data Analyst Nanodegree.
 
 ##Openstreetmap Data for a Small Area in Central London
 
-I started with london.osm, an XML file of size 67.7 MB containing [Openstreetmap](https://www.openstreetmap.org) data for a custom area in central London, obtained with [Overpass API](http://overpass-api.de/query_form.html). For this project, I chose to wrangle street name, postal code and phone number data using Python and MongoBD.
+I started with london.osm, a 67.7 MB XML file containing [Openstreetmap](https://www.openstreetmap.org) data for a custom area in central London, obtained with [Overpass API](http://overpass-api.de/query_form.html). I chose to wrangle street name, postal code and phone number data using Python and MongoBD.
 
 ##Problems Encountered in the Map Data
 
-I have summarized the auditing approachd and the problems detected in "Auditing of map data". In "Data tranformation" I present the methods used to clean and tidy the data in order to resolve a selection of the encountered problems.
+Here I summarize the auditing approachd and the problems detected in "Auditing of map data". In "Data tranformation" I present the methods used to clean and tidy the data in order to resolve a selection of the encountered problems.
 
 At this stage, I worked only on the XML data downloaded from Openstreetmap. At the end of data transformation process, I produced a JSON file ready to be uploaded to MongoDB. All work with data in MongoDB is presented in "Data Overview".
 
