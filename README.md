@@ -8,7 +8,7 @@ I started with london.osm, a 67.7 MB XML file containing [Openstreetmap](https:/
 
 ##Problems Encountered in the Map Data
 
-Here I summarize the auditing approachd and the problems detected in "Auditing of map data". In "Data tranformation" I present the methods used to clean and tidy the data in order to resolve a selection of the encountered problems.
+In "Auditing of map data" I summarize the auditing approach and the problems detected. In "Data tranformation" I present the methods used to clean and tidy the data in order to resolve a selection of the problems encoutered.
 
 At this stage, I worked only on the XML data downloaded from Openstreetmap. At the end of data transformation process, I produced a JSON file ready to be uploaded to MongoDB. All work with data in MongoDB is presented in "Data Overview".
 
@@ -16,7 +16,7 @@ At this stage, I worked only on the XML data downloaded from Openstreetmap. At t
 
 I audited street names, postal codes and phone numbers using Python scripts to analyse the XML data in london.osm. The objective was to spot inconsistencies and mistakes in data value or format.
 
-For street names, I used ```audit_street.py```, a custom Python script based off of Udacity's code. For postal codes and phone numbers, I used code like ```audit_phone.py``` to print out all values and eyeball the data.
+To audit street names, I used ```audit_street.py```, a custom Python script based off of Udacity's code. For postal codes and phone numbers, I used more simple code like ```audit_phone.py``` to print out all values and eyeball the data.
 
 ####1. Problems with street names
 
