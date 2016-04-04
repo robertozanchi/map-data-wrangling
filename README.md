@@ -48,13 +48,13 @@ Another inconsistency problem in data format. I found instances of ```lane```, `
 
 #####3. Typos
 
-Certain street names had a spelling mistake in how they were written. A case I found was ```Steet``` where the user probably meant to input ```Street```.
+Certain street names had a spelling mistake in how they were written. A case I found was ```Steet``` where the user probably meant to input ```Street```, and ```Picadilly``` for ```Piccadily```.
 
 #####4. Mistakes
 
 Several values were found that were not street names. For example ```Chelsea```, ```Lambeth``` and ```Mayfair```, which are names of neighborhoods, or ```5A``` which appears to be a house number.
 
-####2. Problems with postal codes
+####2. Problems with post codes
 
 Printing out post codes highlighted a frequent problem related to partial post code information. A complete post code in London has two parts and looks like this: ```NW1 2BU```. Many values only included the first half of the postcode, e.g. ```NW1```.
 
@@ -63,6 +63,10 @@ The first half of a post code corresponds to a larger area of the city than the 
 ####3. Problems with phone numbers
 
 Simply by printing out phone number values, I detected a number types of mistakes and inconsistencies:
+
+1. Missing phone numbers
+2. Inconsistent formatting
+3. Not a phone number  
 
 #####1. Missing phone numbers
 
@@ -94,6 +98,34 @@ I found one instance of a string like ```+44 +44 20 73001000.``` where the count
 
 ##Data tranformation
 
+I decided to address a selection of the problems discussed above by using ```transform.py```, a Python script, to clean and tidy the data. The script addresses and resolved the following problems:
+
+- Abbreviation of street names
+- Small caps in street names
+- Typos in street names
+- Replacement of ```+44 +44 20 73001000.``` with presumed correct number
+
+The basic method used to correct these problems is that of substitution of problematic values with a string containing the correct value. 
+
+To solve the first three problems related to street names, I used a list of tuples containing the value to be replaced and the correct value:
+```
+STREET_CORRECT = [
+    ("lane", "Lane"),
+    ("market", "Market"),
+    ("Picadilly", "Piccadilly"),
+    ("place", "Place"),
+    ("Rd", "Road"),
+    ("St ", "Street"),
+    ("St.", "Street"),
+    ("Steet", "Street"),
+    ("street", "Street"),
+    ("Street.", "Street"),
+    ("Sq", "Square"),
+    ("turnstile", "Turnstile")
+]
+```
+
+To replace the incorrect phone number value, I used the ```update_phone_number()``` function in ```transform.py```.
 
 ##Data Overview
 
