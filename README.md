@@ -105,9 +105,9 @@ I decided to address a selection of the problems discussed above by using ```tra
 - Typos in street names
 - Replacement of ```+44 +44 20 73001000.``` with presumed correct number
 
-The method used to solve these problems is the substitution of problematic values with strings containing the correct values.
+The method used to solve these problems is string substitution of problematic values with the correct values.
 
-To solve the three problems related to street names, I used a list of tuples containing values to be replaced and correct values:
+To solve all the problems related to street names, I used a list of tuples containing values to be replaced and correct values:
 ```
 STREET_CORRECT = [
     ("lane", "Lane"),
@@ -127,7 +127,7 @@ STREET_CORRECT = [
 
 To replace the incorrect phone number value, I used the ```update_phone_number()``` function in ```transform.py```.
 
-```transform.py``` corrects the problem during the conversion of XML values into JSON. The resulting clean output file ```london.osm.json```, of size 66.9 MB, is ready to be uploaded to MongoDB.
+Taking ```london.osm``` as input, ```transform.py``` corrects these problems during the conversion of XML values into JSON. The resulting "clean" output file ```london.osm.json```, of size 66.9 MB, is ready to be uploaded to MongoDB.
 
 ##Data Overview
 
