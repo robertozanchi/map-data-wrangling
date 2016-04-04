@@ -135,9 +135,9 @@ Taking ```london.osm``` as input, ```transform.py``` corrects these problems dur
 
 
 
-####1. MongoDB installation
+####1. Instal MongoDB
 
-As a first thing, I installed MongoDB using [Homebrew](http://brew.sh/) and the official [MongoDB installation tutorial](https://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/).
+As a first thing, I installed MongoDB on my Mac using [Homebrew](http://brew.sh/) and the official [MongoDB installation tutorial](https://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/).
 
 ####2. Create MongoDB database
 
@@ -147,7 +147,7 @@ Before importing the clean data file, I had created a local MongoDB database usi
 mongod --dbpath /users/robertozanchi/Desktop/Udacity/DAND/P3/data/db
 ```
 
-####3. Importing data file into MongoDB
+####3. Import data file into MongoDB
 
 I imported the JSON file into a ```london``` collection within a newly created ```maps``` database, using the command:
 
