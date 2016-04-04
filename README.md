@@ -141,7 +141,7 @@ As a first thing, I installed MongoDB using [Homebrew](http://brew.sh/) and the 
 
 ####2. Create MongoDB database
 
-Before importing the clean data file, I had to create a local MongoDB database. I used the following command to create a database in my local Udacity project folder.
+Before importing the clean data file, I had created a local MongoDB database using the following command:
 
 ```
 mongod --dbpath /users/robertozanchi/Desktop/Udacity/DAND/P3/data/db
@@ -153,6 +153,7 @@ I imported the JSON file into a ```london``` collection within a newly created `
 
 ```
 mongoimport --file /users/robertozanchi/Desktop/Udacity/DAND/P3/london.osm.json --db maps --collection london
+
 2016-04-03T21:25:03.266+0200	connected to: localhost
 2016-04-03T21:25:06.253+0200	[#######.................] maps.london	19.6 MB/63.8 MB (30.7%)
 2016-04-03T21:25:09.255+0200	[##############..........] maps.london	39.3 MB/63.8 MB (61.6%)
