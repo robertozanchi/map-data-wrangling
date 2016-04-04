@@ -77,22 +77,25 @@ Auditing of phone number: purpose, tools/scripts used, findings...
 ###Importing into MongoDB
 
 ###Create database
-
+```
 mongod --dbpath /users/robertozanchi/Desktop/Udacity/DAND/P3/data/db
+```
 
-
+```
 ###Import into "london" collection within "maps" db
-
+```
+```
 mongoimport --file /users/robertozanchi/Desktop/Udacity/DAND/P3/london.osm.json --db maps --collection london
+```
 
-
+```
 2016-04-03T21:25:03.266+0200	connected to: localhost
 2016-04-03T21:25:06.253+0200	[#######.................] maps.london	19.6 MB/63.8 MB (30.7%)
 2016-04-03T21:25:09.255+0200	[##############..........] maps.london	39.3 MB/63.8 MB (61.6%)
 2016-04-03T21:25:12.251+0200	[#######################.] maps.london	62.1 MB/63.8 MB (97.4%)
 2016-04-03T21:25:12.647+0200	[########################] maps.london	63.8 MB/63.8 MB (100.0%)
 2016-04-03T21:25:12.648+0200	imported 287928 documents
-
+```
 
 ###Data
 
