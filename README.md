@@ -8,33 +8,34 @@ I started with london.osm, a 67.7 MB XML file containing [Openstreetmap](https:/
 
 ##Problems Encountered in the Map Data
 
-In "Auditing of map data" I summarize the auditing approach and the problems detected. In "Data tranformation" I present the methods used to clean and tidy the data in order to resolve a selection of the problems encoutered.
+In "Audit of map data" I summarize the auditing approach and the problems detected. In "Data tranformation" I present the methods used to clean and tidy the data in order to resolve a selection of the problems encoutered.
 
-At this stage, I worked only on the XML data downloaded from Openstreetmap. At the end of data transformation process, I produced a JSON file ready to be uploaded to MongoDB. All work with data in MongoDB is presented in "Data Overview".
+At this stage I worked only on the XML data downloaded from Openstreetmap. At the end of data transformation process, I produced a JSON file ready to be uploaded to MongoDB. All work with data in MongoDB is presented in "Data Overview".
 
-###Auditing of map data
+###Audit of map data
 
 The objective of auditing was to spot inconsistencies and mistakes of value or format in the data. I audited street names, postal codes and phone numbers in london.osm by analysing the XML data with Python scripts. 
 
-To audit street names, I used ```audit_street.py```, a custom Python script based off of Udacity's code. For postal codes and phone numbers, I used more simple code like ```audit_phone.py``` to print out all values and eyeball the data.
+To audit street names, I used ```audit_street.py```, a custom Python script based off of Udacity's code. The script prints all values associated with the "street" tag that don't match those in a list of expected values.
+
+To audit postal code and phone number data, I used code like ```audit_phone.py``` to print out all values. Post codes and phone numbers are short strings, and some problems can be spotted simply by eyeballing the data.
 
 ####1. Problems with street names
 
-To spot mistakes more easily, I filtered out known correct street names using a list of expected values. I ran ```audit_street.py``` several times, each time finding new names to add to the list below.
+To find mistakes more easily, I filtered out correct street names using the list of expected values below. I ran ```audit_street.py``` several times, each time finding new names to add to the list.
 
 ```
-expected = ["Acre", "Approach", "Arch", "Avenue", "Bridge", "Circle", "Circus", "Close", "Corner",
-            "Court", "Crescent", "Drive", "East", "Embankment", "Estate", "Garden", "Gardens", "Gate", "Grove",
-            "Hill", "Lane", "Market", "Mews", "North", "Place", "Road", "Row", "South", "Square", "Station",
-            "Street", "Terrace", "Walk", "Way", "West", "Wharf", "Yard"]
+expected = ["Acre", "Approach", "Arch", "Avenue", "Bridge", "Circle", "Circus", "Close", "Corner", "Court", "Crescent", "Drive",
+            "East", "Embankment", "Estate", "Garden", "Gardens", "Gate", "Grove", "Hill", "Lane", "Market", "Mews", "North", 
+            "Place", "Road", "Row", "South", "Square", "Station", "Street", "Terrace", "Walk", "Way", "West", "Wharf", "Yard"]
 ```
 
-I detected different types of mistakes and inconsistencies in street name values associated with the XML tag "street" in london.osm:
+Among street names that didn't match the ones in the list, I detected different types of mistakes and inconsistencies, listed and described below:
 
 1. Abbreviations
 2. Small caps
 3. Typos
-4. 
+4. Other mistakes
 
 #####Abbreviation
 - St.
