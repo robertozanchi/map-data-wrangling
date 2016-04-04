@@ -2,7 +2,7 @@
 
 This is project 3 of Udacity's Data Analyst Nanodegree.
 
-##Openstreetmap Data for a Small Area in Central London
+##Openstreetmap Data for Central London
 
 I started with london.osm, a 67.7 MB XML file containing [Openstreetmap](https://www.openstreetmap.org) data for a custom area in central London, obtained with [Overpass API](http://overpass-api.de/query_form.html). I chose to wrangle street name, postal code and phone number data using Python and MongoBD.
 
@@ -67,7 +67,17 @@ Unaddressed: Not street names
 ###3. Problems with phone numbers
 Auditing of phone number: purpose, tools/scripts used, findings...
 
-#How many numbers?
+####Missing phone numbers
+- How many numbers
+
+####Inconsistent formatting 
+- National vs internatial
+- 0 before city prefix
+- parenthesis and dashes
+- Spacing between digits
+
+####Not a number
+- Found only one
 
 ##Data tranformation
 
