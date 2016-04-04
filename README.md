@@ -56,9 +56,9 @@ Several values were found that were not street names. For example ```Chelsea```,
 
 ####2. Problems with postal codes
 
-Printing out post codes helped to highlight a frequent problem in the data related to partial post code information. A complete post code in London has two parts and looks like this: ```NW1 2BU```. Many values in the data only include the first half of the postcode, e.g. ```NW1```.
+Printing out post codes highlighted a frequent problem related to partial post code information. A complete post code in London has two parts and looks like this: ```NW1 2BU```. Many values only included the first half of the postcode, e.g. ```NW1```.
 
-The first half of a post code corresponds to a large area on a city and combined with the second half, gives the exact location. Therefore, an input of the first half of the code leads to a problem of lack of complete detail more than wrong location.
+The first half of a post code corresponds to a larger area of the city than the full post code. Therefore, availability of halves of post codes leads to a problem of lack of complete detail more than wrong location.
 
 ####3. Problems with phone numbers
 
