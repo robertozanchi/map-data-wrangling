@@ -44,15 +44,15 @@ An inconsistency problem in data format. A small number of values included abbre
 
 #####2. Small caps
 
-Another inconsistency problem in data format. I found instances of "lane", "place", "street" and "market" instead of their standard capitalized version.
+Another inconsistency problem in data format. I found instances of ```lane```, ```place```, ```street``` and ```market``` instead of their standard capitalized version.
 
 #####3. Typos
 
-Certain street names had a spelling mistake in how they were written. A case I found was "Steet" where the user probably meant to input "Street".
+Certain street names had a spelling mistake in how they were written. A case I found was ```Steet``` where the user probably meant to input ```Street```.
 
 #####4. Other mistakes
 
-Several values were found that were not street names. For example "Chelsea", "Lambeth" and "Mayfair", which are name of neighborhoods, or "5A" which appears to be a house number.
+Several values were found that were not street names. For example ```Chelsea```, ```Lambeth``` and ```Mayfair```, which are name of neighborhoods, or ```5A``` which appears to be a house number.
 
 ###2. Problems with postal codes
 
