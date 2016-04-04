@@ -135,7 +135,7 @@ Taking ```london.osm``` as input, ```transform.py``` corrects these problems dur
 
 
 
-####1. Instal MongoDB
+####1. Install MongoDB
 
 As a first thing, I installed MongoDB on my Mac using [Homebrew](http://brew.sh/) and the official [MongoDB installation tutorial](https://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/).
 
