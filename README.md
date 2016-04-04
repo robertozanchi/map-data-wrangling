@@ -36,7 +36,7 @@ Among the values that didn't match the list, I detected different types of mista
 1. Abbreviation of street names
 2. Small caps
 3. Typos
-4. Other mistakes
+4. Mistakes
 
 #####1. Abbreviation of street names
 
@@ -50,13 +50,15 @@ Another inconsistency problem in data format. I found instances of ```lane```, `
 
 Certain street names had a spelling mistake in how they were written. A case I found was ```Steet``` where the user probably meant to input ```Street```.
 
-#####4. Other mistakes
+#####4. Mistakes
 
 Several values were found that were not street names. For example ```Chelsea```, ```Lambeth``` and ```Mayfair```, which are names of neighborhoods, or ```5A``` which appears to be a house number.
 
 ####2. Problems with postal codes
 
-Printing out post codes helped to highlight some problems in the data. The main problem detected was that of 
+Printing out post codes helped to highlight a frequent problem in the data related to partial post code information. A complete post code in London has two parts and looks like this: ```NW1 2BU```. Many values in the data only include the first half of the postcode, e.g. ```NW1```.
+
+The first half of a post code corresponds to a large area on a city and combined with the second half, gives the exact location. Therefore, an input of the first half of the code leads to a problem of lack of complete detail more than wrong location.
 
 ####3. Problems with phone numbers
 
@@ -64,7 +66,7 @@ Simply by printing out phone number values, I detected a number types of mistake
 
 #####1. Missing phone numbers
 
-The list of all phone numbers available in the data is relatively short. This points at a problem of missing phone number information in the data.
+The list of all phone numbers available in the data is relatively short. This points at a case of missing phone number information scarsity in the data.
 
 #####2. Inconsistent formatting
 
@@ -81,14 +83,14 @@ Looking at the phone numbers that were printed out shows a number of inconsisten
 ```
 
 The formatting problems in this small sample include:
-- Mixed use of national and international formats with country code
-- Use of 0 before the London city prefix (20) when the country code is missing
-- Uneven use of parentheses and dashes
+- Mixed use of national and international formats with country code ```+44```
+- Use of ```0``` before the London city prefix (20) when the country code is missing
+- Uneven use of brackets ```( )``` and dashes ```-```
 - Uneven spacing between digits
 
 #####3. Not a phone number
 
-I found one instance of a string like ```+44 +44 20 73001000.```, where the country code was entered twice and that ended with a full stop. My guess is that the user meant to input ```+44 20 73001000``` instead.
+I found one instance of a string like ```+44 +44 20 73001000.``` where the country code was entered twice and which ended with a full stop. My guess is that the user meant to input ```+44 20 73001000``` instead.
 
 ##Data tranformation
 
