@@ -38,26 +38,25 @@ Among the values that dodn't match the list, I detected different types of mista
 3. Typos
 4. Other mistakes
 
-#####Abbreviation of street names
+#####1. Abbreviation of street names
 
 An inconsistency problem in data format. A small number of values included abbreviations for "Road", "Street" and "Square" instead of their full form. These values were: "Rd", "St", "St." and "Sq".
 
-#####Small caps
+#####2. Small caps
 
 Another inconsistency problem in data format. I found instances of "lane", "place", "street" and "market" instead of their standard capitalized version.
 
-#####Typos
+#####3. Typos
 
 Certain street names had a spelling mistake in how they were written. A case I found was "Steet" where the user probably meant to input "Street".
 
-#####Other mistakes
+#####4. Other mistakes
 
-Auditing of street names: purpose, tools/scripts used, findings...
-How many?
-
+Several values were found that were not street names. For example "Chelsea", "Lambeth" and "Mayfair", which are name of neighborhoods, or "5A" which appears to be a house number.
 
 ###2. Problems with postal codes
-..
+
+Printing out post codes helped to highlight some problems in the data. The main problem detected was that of 
 
 ###3. Problems with phone numbers
 Auditing of phone number: purpose, tools/scripts used, findings...
