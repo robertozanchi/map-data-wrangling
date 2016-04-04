@@ -166,9 +166,23 @@ mongoimport --file /users/robertozanchi/Desktop/Udacity/DAND/P3/london.osm.json 
 
 Within MongoDB I performed analysis of data using the following commands.
 
+Number of documents
+```
 > db.london.count()
 287928
+```
 
+Number of nodes
+```
+> db.london.find({type: "node"}).count()
+242133
+```
+
+Number of ways
+```
+> db.london.find({type: "way"}).count()
+45795
+```
 
 ##Additional Ideas
 
