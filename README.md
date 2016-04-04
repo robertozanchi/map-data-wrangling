@@ -96,18 +96,18 @@ The formatting problems in this small sample include:
 
 I found one instance of a string like ```+44 +44 20 73001000.``` where the country code was entered twice and which ended with a full stop. My guess is that the user meant to input ```+44 20 73001000``` instead.
 
-##Data tranformation
+##Data transformation
 
-I decided to address a selection of the problems discussed above by using ```transform.py```, a Python script, to clean and tidy the data. The script addresses and resolved the following problems:
+I decided to address a selection of the problems discussed above by using ```transform.py```, a Python script, to clean and tidy the data. The script resolved the following data issues:
 
 - Abbreviation of street names
 - Small caps in street names
 - Typos in street names
 - Replacement of ```+44 +44 20 73001000.``` with presumed correct number
 
-The basic method used to correct these problems is that of substitution of problematic values with a string containing the correct value. 
+The method used to solve these problems is the substitution of problematic values with strings containing the correct values.
 
-To solve the first three problems related to street names, I used a list of tuples containing the value to be replaced and the correct value:
+To solve the three problems related to street names, I used a list of tuples containing values to be replaced and correct values:
 ```
 STREET_CORRECT = [
     ("lane", "Lane"),
@@ -126,6 +126,8 @@ STREET_CORRECT = [
 ```
 
 To replace the incorrect phone number value, I used the ```update_phone_number()``` function in ```transform.py```.
+
+```transform.py``` corrects the problem during the conversion of XML values into JSON. The resulting clean output file ```london.osm.json```, of size 66.9 MB, is ready to be uploaded to MongoDB.
 
 ##Data Overview
 
