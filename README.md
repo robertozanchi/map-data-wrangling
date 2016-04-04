@@ -25,42 +25,36 @@ To audit postal code and phone number data, I used code like ```audit_phone.py``
 To find mistakes more easily, I filtered out correct street names using the list of expected values below. I ran ```audit_street.py``` several times, each time finding new names to add to the list.
 
 ```
-expected = ["Acre", "Approach", "Arch", "Avenue", "Bridge", "Circle", "Circus", "Close", "Corner", "Court", "Crescent", "Drive",
-            "East", "Embankment", "Estate", "Garden", "Gardens", "Gate", "Grove", "Hill", "Lane", "Market", "Mews", "North", 
-            "Place", "Road", "Row", "South", "Square", "Station", "Street", "Terrace", "Walk", "Way", "West", "Wharf", "Yard"]
+expected = ["Acre", "Approach", "Arch", "Avenue", "Bridge", "Circle", "Circus", "Close", "Corner", "Court",
+            "Crescent", "Drive", "East", "Embankment", "Estate", "Garden", "Gardens", "Gate", "Grove", "Hill",
+            "Lane", "Market", "Mews", "North", "Place", "Road", "Row", "South", "Square", "Station", "Street",
+            "Terrace", "Walk", "Way", "West", "Wharf", "Yard"]
 ```
 
-Among street names that didn't match the ones in the list, I detected different types of mistakes and inconsistencies, listed and described below:
+Among the values that dodn't match the list, I detected different types of mistakes and inconsistencies:
 
-1. Abbreviations
+1. Abbreviation of street names
 2. Small caps
 3. Typos
 4. Other mistakes
 
-#####Abbreviation
-- St.
-- St
-- Sq
-- Rd
+#####Abbreviation of street names
+
+An inconsistency problem in data format. A small number of values included abbreviations for "Road", "Street" and "Square" instead of their full form. These values were: "Rd", "St", "St." and "Sq".
 
 #####Small caps
+
+Another inconsistency problem in data format. I found instances of "lane", "place", "street" and "market" instead of their standard capitalized version.
+
+#####Typos
+
+Certain street names had a spelling mistake in how they were written. A case I found was "Steet" where the user probably meant to input "Street".
+
+#####Other mistakes
 
 Auditing of street names: purpose, tools/scripts used, findings...
 How many?
 
-Abbreviations
-- St.
-- St
-- Sq
-- Rd
-
-Small caps
-lane, place, street, market, place
-
-Other inconsistencies and mistakes
-- Steet for Street
-
-Unaddressed: Not street names
 
 ###2. Problems with postal codes
 ..
