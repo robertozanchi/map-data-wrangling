@@ -31,7 +31,7 @@ expected = ["Acre", "Approach", "Arch", "Avenue", "Bridge", "Circle", "Circus", 
             "Terrace", "Walk", "Way", "West", "Wharf", "Yard"]
 ```
 
-Among the values that dodn't match the list, I detected different types of mistakes and inconsistencies:
+Among the values that didn't match the list, I detected different types of mistakes and inconsistencies:
 
 1. Abbreviation of street names
 2. Small caps
@@ -40,11 +40,11 @@ Among the values that dodn't match the list, I detected different types of mista
 
 #####1. Abbreviation of street names
 
-An inconsistency problem in data format. A small number of values included abbreviations for "Road", "Street" and "Square" instead of their full form. These values were: "Rd", "St", "St." and "Sq".
+An inconsistency problem in data format. A small number of values included abbreviations for ```Road```, ```Street``` and ```Square``` instead of their full form. These values were: ```Rd```, ```St```, ```St.``` and ```Sq```.
 
 #####2. Small caps
 
-Another inconsistency problem in data format. I found instances of ```lane```, ```place```, ```street``` and ```market``` instead of their standard capitalized version.
+Another inconsistency problem in data format. I found instances of ```lane```, ```place```, ```street``` and ```market``` instead of their standard capitalized versions.
 
 #####3. Typos
 
@@ -52,26 +52,43 @@ Certain street names had a spelling mistake in how they were written. A case I f
 
 #####4. Other mistakes
 
-Several values were found that were not street names. For example ```Chelsea```, ```Lambeth``` and ```Mayfair```, which are name of neighborhoods, or ```5A``` which appears to be a house number.
+Several values were found that were not street names. For example ```Chelsea```, ```Lambeth``` and ```Mayfair```, which are names of neighborhoods, or ```5A``` which appears to be a house number.
 
-###2. Problems with postal codes
+####2. Problems with postal codes
 
 Printing out post codes helped to highlight some problems in the data. The main problem detected was that of 
 
-###3. Problems with phone numbers
-Auditing of phone number: purpose, tools/scripts used, findings...
+####3. Problems with phone numbers
 
-####Missing phone numbers
-- How many numbers
+Simply by printing out phone number values, I detected a number types of mistakes and inconsistencies:
 
-####Inconsistent formatting 
-- National vs internatial
-- 0 before city prefix
-- parenthesis and dashes
-- Spacing between digits
+#####1. Missing phone numbers
 
-####Not a number
-- Found only one
+The list of all phone numbers available in the data is relatively short. This points at a problem of missing phone number information in the data.
+
+#####2. Inconsistent formatting
+
+Looking at the phone numbers that were printed out shows a number of inconsistent use of conventions. For example: 
+
+```
++44 20 74051992
++44-20-79352361
++44 20 7620 328
++442073704988
+0207 850 0500
++44 (0)20 74025077
+442074018080
+```
+
+The formatting problems in this small sample include:
+- Mixed use of national and international formats with country code
+- Use of 0 before the London city prefix (20) when the country code is missing
+- Uneven use of parentheses and dashes
+- Uneven spacing between digits
+
+#####3. Not a phone number
+
+I found one instance of a string like ```+44 +44 20 73001000.```, where the country code was entered twice and that ended with a full stop. My guess is that the user meant to input ```+44 20 73001000``` instead.
 
 ##Data tranformation
 
