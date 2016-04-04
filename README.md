@@ -131,21 +131,28 @@ Taking ```london.osm``` as input, ```transform.py``` corrects these problems dur
 
 ##Data Overview
 
-###Importing into MongoDB
+###1. Get MongoDB up and running
 
-###Create database
+
+
+####1. MongoDB installation
+
+As a first thing, I installed MongoDB using [Homebrew](http://brew.sh/) and the official [MongoDB installation tutorial](https://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/).
+
+####2. Create MongoDB database
+
+Before importing the clean data file, I had to create a local MongoDB database. I used the following command to create a database in my local Udacity project folder.
+
 ```
 mongod --dbpath /users/robertozanchi/Desktop/Udacity/DAND/P3/data/db
 ```
 
-```
-###Import into "london" collection within "maps" db
-```
-```
-mongoimport --file /users/robertozanchi/Desktop/Udacity/DAND/P3/london.osm.json --db maps --collection london
-```
+####3. Importing data file into MongoDB
+
+I imported the JSON file into a ```london``` collection within a newly created ```maps``` database, using the command:
 
 ```
+mongoimport --file /users/robertozanchi/Desktop/Udacity/DAND/P3/london.osm.json --db maps --collection london
 2016-04-03T21:25:03.266+0200	connected to: localhost
 2016-04-03T21:25:06.253+0200	[#######.................] maps.london	19.6 MB/63.8 MB (30.7%)
 2016-04-03T21:25:09.255+0200	[##############..........] maps.london	39.3 MB/63.8 MB (61.6%)
@@ -154,7 +161,9 @@ mongoimport --file /users/robertozanchi/Desktop/Udacity/DAND/P3/london.osm.json 
 2016-04-03T21:25:12.648+0200	imported 287928 documents
 ```
 
-###Data
+###2. Data analysis
+
+Within MongoDB I performed analysis of data using the following commands.
 
 > db.london.count()
 287928
