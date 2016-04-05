@@ -70,7 +70,7 @@ Simply by printing out phone number values, I detected a number types of mistake
 
 #####1. Missing phone numbers
 
-The list of all phone numbers available in the data is relatively short. My data analysis in MongoDB - displayed later - found 1.373 phone number entries compared to 12.797 entries with street information. This points at a case of phone number information scarsity in the data set.
+The number of phone numbers entries in the data set is relatively small. My data analysis in MongoDB - displayed below - found 1.373 phone number entries compared to 12.797 entries with street information.
 
 #####2. Inconsistent formatting
 
@@ -205,19 +205,19 @@ Within MongoDB I performed analysis of data using the following commands.
 { "_id" : "Phone number entries", "count" : 1373 }
 ```
 
-Number of unique users
+#####Number of unique users
 ```
 > db.london.distinct("created.user").length
 1174
 ```
 
-Top contributing user
+#####Top contributing user
 ```
 > db.london.aggregate([{$group: {"_id": "$created.user", "count": {$sum: 1}}}, {$sort: {"count": -1}}, {$limit: 1}])
 { "_id" : "Paul The Archivist", "count" : 40223 }
 ```
 
-Most common amenities
+#####Most common amenities
 ```
 > db.london.aggregate([{$match: {"amenity": {$exists: true}}},{$group: {"_id": "$amenity", "count": {$sum: 1}}},{$sort: {"count": -1}}])
 { "_id" : "restaurant", "count" : 1512 }
@@ -244,11 +244,23 @@ Most common amenities
 
 ##Additional Ideas
 
-1. Incomplete post codes: completing post codes would require searching using the complete address of a place
+Two additional ideas for wrangling this Openstreetmap data are related to solving problems that I haven't dealt with in this project.
+
+###Incomplete post codes
+
+In my data audit I have noted but not acted upon the presence of incomplete post code entries. A possible solutions would be to search for the complete post code using available street name and number data. This would require access to a database that has this information.
+
+###Phone number formats
+
+In ```transform.py``` I have tried using a Python library called [phonenumbers](https://pypi.python.org/pypi/phonenumbers) to format the phone numners in the XML file evenly. While my attempt has not worked so far, the basic idea is to give all phone numbers the same format.
 
 ##Files
+```audit_street.py``` audits street name entries by returning all values that don't match a list of expected names;
+```audit_phone.py``` simply prints all phone numbers;
+```london.osm``` is the XML file downloaded from Openstreetmap;
+```london.osm.json``` is the JSON file produced after cleaning and tidying the XML file with ```transform.py```;
+```transform.py``` includes code for cleaning the data and converting XML to JSON.
 
 ##Resources:
-
 phonenumbers 7.2.8 | https://pypi.python.org/pypi/phonenumbers | 
 sudo pip install git+git://github.com/daviddrysdale/python-phonenumbers.git
