@@ -194,7 +194,8 @@ Within MongoDB I performed analysis of data using the following commands.
 ```
 
 #####Most common street entry
-```> db.london.aggregate([{'$match': {'address.street': {'$exists': 1}}}, {'$group': {'_id': '$address.street','count': {'$sum': 1}}}, {'$sort': {'count': -1}}, {'$limit': 1}])
+```
+> db.london.aggregate([{'$match': {'address.street': {'$exists': 1}}}, {'$group': {'_id': '$address.street','count': {'$sum': 1}}}, {'$sort': {'count': -1}}, {'$limit': 1}])
 { "_id" : "Edgware Road", "count" : 185 }
 ````
 
@@ -240,7 +241,6 @@ Most common amenities
 { "_id" : "pharmacy", "count" : 111 }
 { "_id" : "recycling", "count" : 109 }
 ```
-
 
 ##Additional Ideas
 
