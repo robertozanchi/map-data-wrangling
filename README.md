@@ -173,36 +173,73 @@ A quick database query confirms the existence of 287,928 items in the collection
 
 Within MongoDB I performed analysis of data using the following commands.
 
-####Number of entries
+####Interesting statistics
 
-Number of nodes
+#####Number of nodes
 ```
 > db.london.find({type: "node"}).count()
 242133
 ```
 
-Number of ways
+#####Number of ways
 ```
 > db.london.find({type: "way"}).count()
 45795
 ```
 
-Number of street entries
-
+#####Number of street entries
 ```
-> db.london.aggregate([{'$match': {'address.street': {'$exists': 1}}}, {'$group': {'_id': 'Street information','count': {'$sum': 1},}}])
-{ "_id" : "Street information", "count" : 12797 }
-```
-
-Number of phone numbers
-```
-> db.london.aggregate([{'$match': {'phone': {'$exists': 1}}}, {'$group': {'_id': 'Phone numbers','count': {'$sum': 1},}}])
-{ "_id" : "Phone numbers", "count" : 1373 }
+> db.london.aggregate([{'$match': {'address.street': {'$exists': 1}}}, {'$group': {'_id': 'Street entries','count': {'$sum': 1},}}])
+{ "_id" : "Street entries", "count" : 12797 }
 ```
 
-####User and other statistics
+#####Most common street entry
+```> db.london.aggregate([{'$match': {'address.street': {'$exists': 1}}}, {'$group': {'_id': '$address.street','count': {'$sum': 1}}}, {'$sort': {'count': -1}}, {'$limit': 1}])
+{ "_id" : "Edgware Road", "count" : 185 }
+````
 
+#####Number of phone numbers
+```
+> db.london.aggregate([{'$match': {'phone': {'$exists': 1}}}, {'$group': {'_id': 'Phone number entries','count': {'$sum': 1},}}])
+{ "_id" : "Phone number entries", "count" : 1373 }
+```
 
+Number of unique users
+```
+> db.london.distinct("created.user").length
+1174
+```
+
+Top contributing user
+```
+> db.london.aggregate([{$group: {"_id": "$created.user", "count": {$sum: 1}}}, {$sort: {"count": -1}}, {$limit: 1}])
+{ "_id" : "Paul The Archivist", "count" : 40223 }
+```
+
+Most common amenities
+```
+> db.london.aggregate([{$match: {"amenity": {$exists: true}}},{$group: {"_id": "$amenity", "count": {$sum: 1}}},{$sort: {"count": -1}}])
+{ "_id" : "restaurant", "count" : 1512 }
+{ "_id" : "cafe", "count" : 923 }
+{ "_id" : "bicycle_parking", "count" : 768 }
+{ "_id" : "telephone", "count" : 724 }
+{ "_id" : "pub", "count" : 609 }
+{ "_id" : "bench", "count" : 589 }
+{ "_id" : "post_box", "count" : 520 }
+{ "_id" : "parking", "count" : 394 }
+{ "_id" : "fast_food", "count" : 345 }
+{ "_id" : "motorcycle_parking", "count" : 320 }
+{ "_id" : "bicycle_rental", "count" : 286 }
+{ "_id" : "waste_basket", "count" : 236 }
+{ "_id" : "bank", "count" : 225 }
+{ "_id" : "place_of_worship", "count" : 190 }
+{ "_id" : "bar", "count" : 178 }
+{ "_id" : "atm", "count" : 161 }
+{ "_id" : "school", "count" : 150 }
+{ "_id" : "embassy", "count" : 114 }
+{ "_id" : "pharmacy", "count" : 111 }
+{ "_id" : "recycling", "count" : 109 }
+```
 
 
 ##Additional Ideas
