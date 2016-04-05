@@ -257,10 +257,7 @@ In ```transform.py``` I have tried using a Python library called [phonenumbers](
 ##Files
 ```audit_street.py``` audits street name entries by returning all values that don't match a list of expected names;
 ```audit_phone.py``` simply prints all phone numbers;
-```london.osm``` is the XML file downloaded from Openstreetmap;
-```london.osm.json``` is the JSON file produced after cleaning and tidying the XML file with ```transform.py```;
 ```transform.py``` includes code for cleaning the data and converting XML to JSON.
 
 ##Resources:
-phonenumbers 7.2.8 | https://pypi.python.org/pypi/phonenumbers | 
-sudo pip install git+git://github.com/daviddrysdale/python-phonenumbers.git
+- sudo pip install git+git://github.com/daviddrysdale/python-phonenumbers.git
