@@ -70,7 +70,7 @@ Simply by printing out phone number values, I detected a number types of mistake
 
 #####1. Missing phone numbers
 
-The list of all phone numbers available in the data is relatively short. This points at a case of missing phone number information scarsity in the data.
+The list of all phone numbers available in the data is relatively short. My data analysis in MongoDB - displayed later - found 1.373 phone number entries compared to 12.797 entries with street information. This points at a case of phone number information scarsity in the data set.
 
 #####2. Inconsistent formatting
 
@@ -98,14 +98,14 @@ I found one instance of a string like ```+44 +44 20 73001000.``` where the count
 
 ##Data transformation
 
-I decided to address a selection of the problems discussed above by using ```transform.py```, a Python script, to clean and tidy the data. The script resolved the following data issues:
+I used ```transform.py``` to clean and tidy the data and address a selection of the issues discussed above, namely:
 
 - Abbreviation of street names
 - Small caps in street names
 - Typos in street names
 - Replacement of ```+44 +44 20 73001000.``` with presumed correct number
 
-The method used to solve these problems is string substitution of problematic values with the correct values.
+The method used to solve these problems is substitution of problematic values in the XML file with the correct values.
 
 To solve all the problems related to street names, I used a list of tuples containing values to be replaced and correct values:
 ```
@@ -131,9 +131,9 @@ Taking ```london.osm``` as input, ```transform.py``` corrects these problems dur
 
 ##Data Overview
 
-###1. Get MongoDB up and running
+###1. Load data into MongoDB
 
-
+In order to load the JSON file into MongoDB, I had to first install MongoDB and create a new database and collection for the map data.
 
 ####1. Install MongoDB
 
@@ -162,15 +162,18 @@ mongoimport --file /users/robertozanchi/Desktop/Udacity/DAND/P3/london.osm.json 
 2016-04-03T21:25:12.648+0200	imported 287928 documents
 ```
 
-###2. Data analysis
+A quick database query confirms the existence of 287,928 items in the collection.
 
-Within MongoDB I performed analysis of data using the following commands.
-
-Number of documents
 ```
 > db.london.count()
 287928
 ```
+
+###2. Data analysis
+
+Within MongoDB I performed analysis of data using the following commands.
+
+####Number of entries
 
 Number of nodes
 ```
@@ -184,11 +187,31 @@ Number of ways
 45795
 ```
 
+Number of street entries
+
+```
+> db.london.aggregate([{'$match': {'address.street': {'$exists': 1}}}, {'$group': {'_id': 'Street information','count': {'$sum': 1},}}])
+{ "_id" : "Street information", "count" : 12797 }
+```
+
+Number of phone numbers
+```
+> db.london.aggregate([{'$match': {'phone': {'$exists': 1}}}, {'$group': {'_id': 'Phone numbers','count': {'$sum': 1},}}])
+{ "_id" : "Phone numbers", "count" : 1373 }
+```
+
+####User and other statistics
+
+
+
+
 ##Additional Ideas
 
 1. Incomplete post codes: completing post codes would require searching using the complete address of a place
 
-Resources:
+##Files
+
+##Resources:
 
 phonenumbers 7.2.8 | https://pypi.python.org/pypi/phonenumbers | 
 sudo pip install git+git://github.com/daviddrysdale/python-phonenumbers.git
