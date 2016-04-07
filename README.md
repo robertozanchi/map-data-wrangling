@@ -273,8 +273,11 @@ Implementing the suggested method for completing post code data would also come 
 
 ##Files
 ```audit_street.py``` audits street name entries by returning all values that don't match a list of expected names;
+
 ```audit_phone.py``` simply prints all phone numbers;
+
 ```data_wrangling_report.pdf``` is the final project report;
+
 ```transform.py``` includes code for cleaning the data and converting XML to JSON.
 
 ##Resources:
