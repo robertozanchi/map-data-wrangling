@@ -281,4 +281,4 @@ Implementing the suggested method for completing post code data would also come 
 ```transform.py``` includes code for cleaning the data and converting XML to JSON.
 
 ##Resources:
-- sudo pip install git+git://github.com/daviddrysdale/python-phonenumbers.git
+To install ```phonenumbers``` python library, use Mac Terminal command ```sudo pip install git+git://github.com/daviddrysdale/python-phonenumbers.git```
