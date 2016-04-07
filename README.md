@@ -1,6 +1,8 @@
 #OpenStreetMap Data Wrangling with MongoDB
 
-This is project 3 of Udacity's Data Analyst Nanodegree.
+This is project 3 of Udacity's Data Analyst Nanodegree: Data Wrangling with MongoDB. The aim is to use data munging techniques, such as assessing the quality of the data for validity, accuracy, completeness, consistency and uniformity, to clean the OpenStreetMap data for a select part of the world.
+
+This [GihHub repository](https://github.com/robertozanchi/map-data-wrangling) contains my project report and the code used as ```.py``` files.
 
 ##Openstreetmap Data for Central London
 
