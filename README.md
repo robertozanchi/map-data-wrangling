@@ -4,7 +4,7 @@ This is project 3 of Udacity's Data Analyst Nanodegree: Wrangle OpenStreetMap Da
 
 The aim is to learn to use data munging techniques, such as assessing the quality of the data for validity, accuracy, completeness, consistency and uniformity, to clean the OpenStreetMap data for a select part of the world.
 
-This [GihHub repository](https://github.com/robertozanchi/map-data-wrangling) contains my project report and the code used as ```.py``` files.
+This [GihHub repository](https://github.com/robertozanchi/map-data-wrangling) contains the project report ```data_wrangling_report.pdf``` and the code used as ```.py``` files.
 
 ##Openstreetmap Data for Central London
 
@@ -254,27 +254,27 @@ An additional idea for improving the selected Openstreetmap dataset is related t
 A possible way to insert complete post code values in the database would be to search for the complete post code using available street name and number data. This would require access to a database that has this information.
 
 ###Benefits of potential solution
-I believe that completing post code data would bring at least two kinds of benefits:
+I believe that completing post code data would bring at least three kinds of benefits:
 
-1. Higher quality data
+1. Higher quality data: having complete and tidy post code entries in the dataset would mean having a higher quality dataset overall.
 
-Having complete and tidy post code entries in the dataset would mean having a higher quality dataset overall.
+2. Potential for richer analysis: a tangible benefit is that it would become possible to analize the data using post code constistently as the independent variable.
 
-2. Potential for more rich analysis
+3. Unlock data uses that require post code information: once reliable post code data is obtained, new real-world applications become possible. An example is using the data for commercial activities, such as shipping and delivery of orders.
 
-A tangible benefit is that it would become possible to analize the data using post code constistently as the independent variable.
+###Challenges
+Implementing the suggested method for completing post code data would also come with its own challenges, including:
 
-3. Unlock data uses that require post code information
+1. Find a reliable third-party data source: completing post code information would require access to a database that has a combination of correct address and correct post code information. This requires trusting a third-party source to vaidate user input.
 
-Once reliable post code data is obtained, new real-world applications become possible. An example is using the data for commercial activities, such as shipping and delivery of orders.
+2. Cost of data access: access and usage of an external database woud come with additonal costs. If such database were provided on commercial terms, payment of a fee may be required. Other costs are related to the use of computational power, data storage and in time required to implement the solution.
 
-###Challenges in implementing potential solution
-- Would need to make sure 
-
+3. Technical implementaton: if I were to try and implement the proposed solution, I would likely need to expand my skillset. Using an external database, or an API, would require writing new code, and new using applications, libraries or frameworks.
 
 ##Files
 ```audit_street.py``` audits street name entries by returning all values that don't match a list of expected names;
 ```audit_phone.py``` simply prints all phone numbers;
+```data_wrangling_report.pdf``` is the final project report;
 ```transform.py``` includes code for cleaning the data and converting XML to JSON.
 
 ##Resources:
