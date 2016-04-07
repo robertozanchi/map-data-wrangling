@@ -73,11 +73,10 @@ def is_contact_phone(tag_key):
 
 def update_phone_number(tag_val):
     if tag_val == '+44 +44 20 73001000.':
-        return '+44 20 73001000'
+        return '02073001000'
     else:
-        corrected_number = phonenumbers.format_number(phonenumbers.parse(tag_val, 'GB'), phonenumbers.PhoneNumberFormat.NATIONAL)
-    # x = phonenumbers.parse(tag_val, "GB")
-    # node['phone'] = phonenumbers.format_number(x, phonenumbers.PhoneNumberFormat.INTERNATIONAL)
+    	x = phonenumbers.parse(tag_val, "GB")
+    	corrected_number = str(x.national_number)
         return corrected_number
 
 
@@ -166,7 +165,7 @@ def process_map(file_in, pretty=False):
 
 
 def process():
-    process_map('london.osm', False)
+    process_map('london.osm', True)
 
 
 if __name__ == "__main__":
