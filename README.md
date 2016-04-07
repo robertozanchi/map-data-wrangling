@@ -255,10 +255,13 @@ A possible way to insert complete post code values in the database would be to s
 
 ###Benefits of potential solution
 I believe that completing post code data would bring at least two kinds of benefits:
+
 1. Higher quality data
 Having complete and tidy post code entries in the dataset would mean having a higher quality dataset overall.
+
 2. Potential for more rich analysis
 A tangible benefit is that it would become possible to analize the data using post code constistently as the independent variable.
+
 3. Unlock data uses that require post code information
 Once reliable post code data is obtained, new real-world applications become possible. An example is using the data for commercial activities, such as shipping and delivery of orders.
 
