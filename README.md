@@ -1,6 +1,8 @@
 #OpenStreetMap Data Wrangling with MongoDB
 
-This is project 3 of Udacity's Data Analyst Nanodegree: Data Wrangling with MongoDB. The aim is to use data munging techniques, such as assessing the quality of the data for validity, accuracy, completeness, consistency and uniformity, to clean the OpenStreetMap data for a select part of the world.
+This is project 3 of Udacity's Data Analyst Nanodegree: Wrangle OpenStreetMap Data.
+
+The aim is to learn to use data munging techniques, such as assessing the quality of the data for validity, accuracy, completeness, consistency and uniformity, to clean the OpenStreetMap data for a select part of the world.
 
 This [GihHub repository](https://github.com/robertozanchi/map-data-wrangling) contains my project report and the code used as ```.py``` files.
 
@@ -105,7 +107,7 @@ I used ```transform.py``` to clean and tidy the data and address a selection of 
 - Abbreviation of street names
 - Small caps in street names
 - Typos in street names
-- Replacement of ```+44 +44 20 73001000.``` with presumed correct number
+- Formatting of phone numbers
 
 The method used to solve these problems is substitution of problematic values in the XML file with the correct values.
 
@@ -127,7 +129,7 @@ STREET_CORRECT = [
 ]
 ```
 
-To replace the incorrect phone number value, I used the ```update_phone_number()``` function in ```transform.py```.
+To reformat phone numbers to the national UK format, I used the ```update_phone_number()``` function in ```transform.py```, also using Python library [phonenumbers](https://pypi.python.org/pypi/phonenumbers).
 
 Taking ```london.osm``` as input, ```transform.py``` corrects these problems during the conversion of XML values into JSON. The resulting "clean" output file ```london.osm.json```, of size 66.9 MB, is ready to be uploaded to MongoDB.
 
@@ -244,17 +246,25 @@ Within MongoDB I performed analysis of data using the following commands.
 { "_id" : "recycling", "count" : 109 }
 ```
 
-##Additional Ideas
+##Additional Ideas: complete post code values
 
-Two additional ideas for wrangling this Openstreetmap data are related to solving problems that I haven't dealt with in this project.
+An additional idea for improving the selected Openstreetmap dataset is related to resolving the issue of incomplete post code information, which I was not able to address in this project.
 
-###Incomplete post codes
+###Potential solution to complete post codes
+A possible way to insert complete post code values in the database would be to search for the complete post code using available street name and number data. This would require access to a database that has this information.
 
-In my data audit I have noted but not acted upon the presence of incomplete post code entries. A possible solutions would be to search for the complete post code using available street name and number data. This would require access to a database that has this information.
+###Benefits of potential solution
+I believe that completing post code data would bring at least two kinds of benefits:
+1. Higher quality data
+Having complete and tidy post code entries in the dataset would mean having a higher quality dataset overall.
+2. Potential for more rich analysis
+A tangible benefit is that it would become possible to analize the data using post code constistently as the independent variable.
+3. Unlock data uses that require post code information
+Once reliable post code data is obtained, new real-world applications become possible. An example is using the data for commercial activities, such as shipping and delivery of orders.
 
-###Phone number formats
+###Challenges in implementing potential solution
+- Would need to make sure 
 
-In ```transform.py``` I have tried using a Python library called [phonenumbers](https://pypi.python.org/pypi/phonenumbers) to format the phone numners in the XML file evenly. While my attempt has not worked so far, the basic idea is to give all phone numbers the same format.
 
 ##Files
 ```audit_street.py``` audits street name entries by returning all values that don't match a list of expected names;
